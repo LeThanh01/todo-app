@@ -4,6 +4,10 @@
 Template.testMeteor01.data = function () {
     return Todo.find({}, {sort: {created: 1}})
 }
+
+Template.testMeteor01.count = function () {
+    return Todo.find().count()
+}
 /**
  * EVENTS
  */
