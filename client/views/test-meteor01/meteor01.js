@@ -2,7 +2,7 @@
  * HELPERS
  */
 Template.testMeteor01.data = function () {
-    
+    return Todo.find({}, {sort: {created: 1}})
 }
 /**
  * EVENTS
@@ -21,7 +21,7 @@ Template.testMeteor01.events({
             });
         }
         
-    }
+    },
 })
 /**
  * CLASS FUNCTION
