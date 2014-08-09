@@ -7,9 +7,12 @@
         ">
         <h2>To Do</h2>
         <p>{{ count }} todos</p>
-        {{#each data}}
-            {{> listTodo }}
-        {{/each}}
+
+        <ul class="list" style="margin: 0px;">
+            {{#each data}}
+                {{> listTodo }}
+            {{/each}}
+        </ul>
 
         <div class="item item-input-inset">
             <label class="item-input-wrapper">
@@ -22,13 +25,11 @@
     </div>
 </template>
 
-<template name="listTodo">
-    <ul class="list" style="margin: 0px;">
-        <li class="item item-checkbox">
-            <label class="checkbox">
-                <input type="checkbox">
-            </label>
-            {{ todo }}
-        </li>         
-    </ul>
+<template name="listTodo">    
+    <li class="item item-checkbox">
+        <label class="checkbox">
+            <input id="checked" type="checkbox">
+        </label>
+        {{ todo }}
+    </li>
 </template>

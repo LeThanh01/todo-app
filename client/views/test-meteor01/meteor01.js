@@ -1,6 +1,7 @@
 /**
  * HELPERS
  */
+
 Template.testMeteor01.data = function () {
     return Todo.find({}, {sort: {created: 1}})
 }
