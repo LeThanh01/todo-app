@@ -3,7 +3,7 @@
  */
 
 Template.testMeteor01.data = function () {
-    return Todo.find({}, {sort: {created: 1}})
+    return Todo.find({}, {sort: {created: -1}})
 }
 
 Template.testMeteor01.count = function () {
@@ -27,6 +27,17 @@ Template.testMeteor01.events({
         }
         
     },
+    'click  .checkbox': function (evt, tmp) {
+        var id = this._id;
+        if(id != ''){
+            Meteor.call('removeTodo', id,function (err, res) {
+                if(err)
+                    console.log(err);
+                if(res)
+                    tmp.find('#newTodo').value = '';
+            });
+        }
+    }
 })
 /**
  * CLASS FUNCTION
