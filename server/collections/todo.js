@@ -1,7 +1,8 @@
 /**
  * Config, variable
  */
-
+var Future = Npm.require('fibers/future');
+var Fiber = Npm.require('fibers');
 /**
  * Method
  */
@@ -34,11 +35,15 @@ var insert = function (doc) {
 
 var remove = function (doc) {
     return Todo.remove(doc);
-}
+};
 /**
  * export
  */
-
+(function(){
+    var self = this;
+    self.insert = insert;
+    self.remove = remove;
+}).apply(APP.namespace('TODO'));
 /**
  * Quick test
  */
